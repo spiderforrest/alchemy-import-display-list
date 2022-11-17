@@ -4,6 +4,7 @@ import { renderItemCard } from './lib/render-utils.js';
 const candyContainer = document.getElementById('candy-list-container');
 const groceriesContainer = document.getElementById('groceries-list-container');
 const genderContainer = document.getElementById('gender-list-container');
+const locationContainer = document.getElementById('location-list-container');
 
 async function handleList(domain, container) {
     // get the items
@@ -21,4 +22,5 @@ window.addEventListener('load', () => {
     handleList('candies', candyContainer);
     handleList('groceries', groceriesContainer);
     handleList('genders', genderContainer);
+    handleList('places', locationContainer);
 });
