@@ -6,7 +6,6 @@ const candyContainer = document.getElementById('candy-list-container');
 async function handleList(domain, container) {
     // get the items
     const response = await getItems(domain);
-    console.log(response);
     // exit on err
     if (response.error) return;
     // iterate rendering and adding to dom
