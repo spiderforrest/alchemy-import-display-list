@@ -1,11 +1,21 @@
-/* Imports */
+import { getItems } from './lib/supabase.js';
+import { renderItemCard } from './lib/render-utils.js';
 
-/* Get DOM Elements */
+const candyContainer = document.getElementById('candy-list-container');
 
-/* State */
+async function handleList(domain, container) {
+    // get the items
+    const response = await getItems(domain);
+    console.log(response);
+    // exit on err
+    if (response.error) return;
+    // iterate rendering and adding to dom
+    for (const item of response.data) {
+        const div = renderItemCard(domain, item);
+        container.append(div);
+    }
+}
 
-/* Events */
-
-/* Display Functions */
-
-// (don't forget to call any display functions you want to run on page load!)
+window.addEventListener('load', () => {
+    handleList('candies', candyContainer);
+});
