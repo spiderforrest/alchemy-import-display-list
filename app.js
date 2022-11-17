@@ -2,6 +2,7 @@ import { getItems } from './lib/supabase.js';
 import { renderItemCard } from './lib/render-utils.js';
 
 const candyContainer = document.getElementById('candy-list-container');
+const groceriesContainer = document.getElementById('groceries-list-container');
 
 async function handleList(domain, container) {
     // get the items
@@ -17,4 +18,5 @@ async function handleList(domain, container) {
 
 window.addEventListener('load', () => {
     handleList('candies', candyContainer);
+    handleList('groceries', groceriesContainer);
 });
